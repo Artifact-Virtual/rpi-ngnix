@@ -1,0 +1,65 @@
+# Docker Compose file for Nginx and Certbot with a landing page and backend API
+## This file sets up a multi-container Docker application with Nginx, Certbot, a landing
+### This system is designed without extermnal dependencies and this docker set up is deprecated.
+#### It is placed here for ease of access and reference, but it is not recommended for production use.
+
+version: '3.8'
+
+networks:
+  artifactvirtual-network:
+    driver: bridge
+
+services:
+  nginx:
+    image: nginx:1.25-alpine
+    restart: unless-stopped
+    volumes:
+      - ./data/nginx:/etc/nginx/conf.d
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    ports:
+      - "80:80"
+      - "443:443"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    networks:
+      - artifactvirtual-network
+    depends_on:
+      - landing-page
+
+  certbot:
+    image: certbot/certbot
+    restart: unless-stopped
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    networks:
+      - artifactvirtual-network
+
+  landing-page:
+    build: 
+      context: ../../frontend/landing_page/v2
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - VITE_API_URL=https://artifactvirtual.com/api
+    expose:
+      - "5173"
+    networks:
+      - artifactvirtual-network
+    volumes:
+      - ../../frontend/landing_page/v2/dist:/app/dist:ro
+
+  backend-api:
+    build:
+      context: ../..
+      dockerfile: Dockerfile.backend
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=8000
+    expose:
+      - "8000"
+    networks:
+      - artifactvirtual-network

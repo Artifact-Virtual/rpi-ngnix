@@ -1,0 +1,97 @@
+{
+  "headless": false,
+  "concurrency": 3,
+  "maxRetries": 3,
+  "timeout": 30000,
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "targets": {
+    "local": "https://localhost:8443",
+    "health": "https://localhost:8443/health",
+    "api": "https://localhost:8443/api",
+    "landing": "https://localhost:8443/index.html"
+  },
+  "ai": {
+    "enableVisualRegression": true,
+    "enableContentAnalysis": true,
+    "enablePredictiveAnalytics": true,
+    "enableAnomalyDetection": true,
+    "learningMode": true
+  },
+  "thresholds": {
+    "performance": {
+      "loadTime": 3000,
+      "score": 70
+    },
+    "security": {
+      "score": 80,
+      "maxVulnerabilities": 5
+    },
+    "content": {
+      "score": 60,
+      "minWordCount": 300
+    },
+    "accessibility": {
+      "score": 80
+    }
+  },
+  "notifications": {
+    "enabled": true,
+    "webhook": null,
+    "email": null,
+    "slack": null,
+    "discord": null
+  },
+  "scheduling": {
+    "healthCheck": {
+      "enabled": true,
+      "interval": 300,
+      "priority": 1
+    },
+    "securityScan": {
+      "enabled": true,
+      "interval": 3600,
+      "priority": 2
+    },
+    "performanceTest": {
+      "enabled": true,
+      "interval": 1800,
+      "priority": 3
+    },
+    "contentAnalysis": {
+      "enabled": true,
+      "interval": 7200,
+      "priority": 4
+    },
+    "visualRegression": {
+      "enabled": true,
+      "interval": 86400,
+      "priority": 5
+    }
+  },
+  "reporting": {
+    "enabled": true,
+    "format": "json",
+    "includeScreenshots": true,
+    "maxReports": 100,
+    "autoCleanup": true
+  },
+  "browser": {
+    "args": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-accelerated-2d-canvas",
+      "--no-first-run",
+      "--no-zygote",
+      "--disable-gpu",
+      "--ignore-certificate-errors",
+      "--ignore-ssl-errors",
+      "--disable-web-security",
+      "--allow-running-insecure-content"
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  }
+}
