@@ -13,8 +13,7 @@
 
 ---
 
-![fuck it](https://img.shields.io/badge/fuck%20it-4B0082?style=for-the-badge&logo=git&logoColor=white)
-![ship it](https://img.shields.io/badge/ship%20it-000000?style=for-the-badge&logo=producthunt&logoColor=white)
+![fuck it](https://img.shields.io/badge/fuck%20it-4B0082?style=for-the-badge&logo=git&logoColor=white)![ship it](https://img.shields.io/badge/ship%20it-000000?style=for-the-badge&logo=producthunt&logoColor=white)
 
 
 ## Table of Contents
