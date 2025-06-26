@@ -4,7 +4,6 @@
 
 > **Template Ready**: This infrastructure template can be customized for any domain or application. All sensitive configurations have been parameterized for easy deployment.
 
-![fuck it](https://img.shields.io/badge/fuck%20it-4B0082?style=for-the-badge&logo=git&logoColor=white)![ship it](https://img.shields.io/badge/ship%20it-000000?style=for-the-badge&logo=rocket&logoColor=white)
 
 ---
 
@@ -322,3 +321,6 @@ Edit `config/security.json`:
 ---
 
 *This infrastructure template provides enterprise-grade reverse proxy capabilities with zero external dependencies. Customize for your specific needs and deploy with confidence.*
+
+
+
