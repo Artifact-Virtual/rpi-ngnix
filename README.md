@@ -1,11 +1,21 @@
 # Reverse Ingress-Nginx Web Infrastructure
 
+![Nginx](https://img.shields.io/badge/Nginx-1.21.6-brightgreen.svg) 
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg) 
+![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg) 
+![License](https://img.shields.io/badge/License-MIT-yellow.svg) 
+![Zero Dependencies](https://img.shields.io/badge/Dependencies-None-critical.svg)
+![Ingress](https://img.shields.io/badge/Ingress-Enabled-blue.svg)
+
 **Enterprise-grade reverse proxy and ingress controller with SSL termination, security monitoring, AI automation, and zero external dependencies.**
 
 > **Template Ready**: This infrastructure template can be customized for any domain or application. All sensitive configurations have been parameterized for easy deployment.
 
-
 ---
+
+![fuck it](https://img.shields.io/badge/fuck%20it-4B0082?style=for-the-badge&logo=git&logoColor=white)
+![ship it](https://img.shields.io/badge/ship%20it-000000?style=for-the-badge&logo=producthunt&logoColor=white)
+
 
 ## Table of Contents
 
@@ -86,7 +96,7 @@ node automation_scripts/orchestrator_fixed.js dashboard
                 │ Analytics Engine    Management Tools                    │
                 │ • Performance data  • Configuration management          │
                 │ • User analytics    • Backup & recovery                 │
-                │ • Resource usage    • Update automation                 │
+                │ • Resource usage    • Update automation                │
                 └─────────────────────────────────────────────────────────┘
 ```
 
